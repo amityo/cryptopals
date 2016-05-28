@@ -14,4 +14,6 @@ def xor_hex(first, second):
     result_binary = ''.join([xor_str(f,s) for f,s in zip(first_binary, second_binary)])
     return Converter.convert_binary_to_hex(result_binary)
 
+def xor_hex_digit(input, xor):
+    return ''.join([xor_hex(input[i:i+2], xor) for i in range(0, len(input), 2)])
 
