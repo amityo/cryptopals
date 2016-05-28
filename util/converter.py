@@ -53,3 +53,7 @@ class Converter(object):
         binary = Converter.convert_hex_to_binary(hex)
         return Converter.convert_binary_to_base64(binary)
 
+    @staticmethod
+    def convert_binary_to_hex(binary):
+        decimals = [Converter.convert_binary_to_decimal(binary[i:i+4]) for i in range(0, len(binary), 4)]
+        return ''.join([hex_chars[decimal] for decimal in decimals])
