@@ -20,3 +20,13 @@ def xor_hex(first, second):
 
 def xor_hex_digit(input, xor):
     return ''.join([xor_hex(input[i:i + 2], xor) for i in range(0, len(input), 2)])
+
+def repeat_xor(word, key):
+    repeater = repeat(key)
+    return''.join([xor_hex(char.encode("hex"), next(repeater).encode("hex")) for char in word])
+
+
+def repeat(key):
+    while True:
+        for i in range(len(key)):
+            yield key[i]
